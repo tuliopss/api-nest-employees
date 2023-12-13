@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { EmployeesController } from './employee.controller';
 import { EmployeesService } from './employee.service';
+import { EmployeeRepository } from 'src/repository/employee.repository';
 // import { Employee, EmployeeSchema } from './schemas/Employee.schema';
 
 @Module({

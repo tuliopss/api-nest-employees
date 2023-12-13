@@ -7,6 +7,7 @@ import { EmployeesController } from './employee/employee.controller';
 import { EmployeesService } from './employee/employee.service';
 import { Employee, EmployeeSchema } from './schemas/employee.schema';
 import { EmployeeRepository } from './repository/employee.repository';
+import { EmployeesModule } from './employee/employee.module';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { EmployeeRepository } from './repository/employee.repository';
   ],
 
   controllers: [EmployeesController],
-  providers: [EmployeesService, EmployeeRepository],
+  providers: [EmployeeRepository, EmployeesService],
 })
 export class AppModule {}

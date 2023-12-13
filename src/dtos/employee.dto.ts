@@ -13,33 +13,38 @@ import {
 import { DepartmentDto } from './department.dto';
 
 export class EmployeeDto {
-  @IsNotEmpty()
-  @IsString()
-  @MinLength(2)
   name: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @IsPositive()
   age: number;
-
-  @IsNotEmpty()
-  @Length(11)
-  @MaxLength(11)
   cpf: string;
-
-  @IsNotEmpty()
   role: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @IsPositive()
   salary: number;
+  // department: Depar
+  // @IsNotEmpty()
+  // @IsString()
+  // @MinLength(2)
+  // name: string;
 
-  @IsNotEmpty()
-  @Type(() => DepartmentDto)
-  @IsNotEmptyObject()
-  @ValidateNested({ each: true })
-  department: DepartmentDto;
+  // @IsNotEmpty()
+  // @IsNumber()
+  // @IsPositive()
+  // age: number;
+
+  // @IsNotEmpty()
+  // @Length(11)
+  // @MaxLength(11)
+  // cpf: string;
+
+  // @IsNotEmpty()
+  // role: string;
+
+  // @IsNotEmpty()
+  // @IsNumber()
+  // @IsPositive()
+  // salary: number;
+
+  // @IsNotEmpty()
+  // @Type(() => DepartmentDto)
+  // @IsNotEmptyObject()
+  // @ValidateNested({ each: true })
+  // department: DepartmentDto;
 }
-//
