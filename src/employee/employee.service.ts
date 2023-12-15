@@ -67,10 +67,11 @@ export class EmployeesService {
     newEmployee: UpdateEmployeeDto,
   ): Promise<IEmployee> {
     const existEmployee = await this.employeeRepository.getEmployeeById(id);
-    console.log(existEmployee);
+    // console.log(existEmployee);
     if (!existEmployee) {
       throw new BadRequestException('Employee not found');
     }
+    console.log('new employee', newEmployee);
 
     return await this.employeeRepository.editEmployee(id, newEmployee);
   }
