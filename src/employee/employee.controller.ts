@@ -40,12 +40,14 @@ export class EmployeesController {
     return await this.employeeService.updateEmployee(id, updatedEmployee);
   }
 
-  @Patch('/:id')
+  @Patch('/update/:id')
   async editEmployee(
     @Param('id') id: string,
-    @Body() updatedEmployee: UpdateEmployeeDto,
-  ) {
-    console.log('chegou aqui', updatedEmployee);
+    @Body() newEmployee: UpdateEmployeeDto,
+  ): Promise<IEmployee> {
+    console.log('controller', newEmployee);
+
+    return await this.employeeService.editEmployee(id, newEmployee);
   }
 
   @Delete('/:id')

@@ -22,11 +22,13 @@ export class EmployeesService {
   }
 
   async getEmployeeById(id: string): Promise<IEmployee> {
-    try {
-      return await this.employeeRepository.getEmployeeById(id);
-    } catch (error) {
+    const employee = await this.employeeRepository.getEmployeeById(id);
+
+    if (!employee) {
       throw new BadRequestException('Employee not found');
     }
+
+    return employee;
   }
 
   async createEmployee(newEmployee: EmployeeDto): Promise<IEmployee> {
@@ -58,5 +60,18 @@ export class EmployeesService {
 
     console.log('service', id, employee);
     return await this.employeeRepository.updateEmployee(id, employee);
+  }
+
+  async editEmployee(
+    id: string,
+    newEmployee: UpdateEmployeeDto,
+  ): Promise<IEmployee> {
+    const existEmployee = await this.employeeRepository.getEmployeeById(id);
+    console.log(existEmployee);
+    if (!existEmployee) {
+      throw new BadRequestException('Employee not found');
+    }
+
+    return await this.employeeRepository.editEmployee(id, newEmployee);
   }
 }

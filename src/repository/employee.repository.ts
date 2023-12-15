@@ -39,4 +39,11 @@ export class EmployeeRepository {
       { new: true },
     );
   }
+
+  async editEmployee(
+    id: string,
+    newEmployee: UpdateEmployeeDto,
+  ): Promise<IEmployee> {
+    return await this.employeeModel.findByIdAndUpdate(id, newEmployee);
+  }
 }
